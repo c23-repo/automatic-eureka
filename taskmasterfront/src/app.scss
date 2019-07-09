@@ -1,0 +1,64 @@
+header {
+
+  background: green;
+  color: whitesmoke;
+  text-align: center;
+  font-size: 2.5em;
+  line-height: 3em;
+  
+}
+
+main {
+
+  margin: 1.5em 1em;
+
+  ul {
+    
+    list-style-type: none;
+
+    li {
+
+      background: #ee804d;
+      color: black;
+      line-height: 1.6em;
+      padding: .5em;
+      margin: .5em;
+
+      details {
+
+        summary {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+        }
+
+        section {
+
+          background: #ebe0cc;
+
+            div {
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            padding: .5em;
+
+            &:hover {
+              background: #e2b96e;
+            }
+        
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+
+  background: green;
+  color: whitesmoke;
+  text-align: center;
+  font-size: 2.5em;
+  line-height: 3em;
+}
