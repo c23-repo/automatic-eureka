@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import './app.scss';
 
 const API = 'http://taskmaster123cr.us-west-2.elasticbeanstalk.com/tasks'
+// const API = 'http://localhost:5000/tasks'
 
 function Tasks() {
 
@@ -9,7 +10,7 @@ function Tasks() {
 
   const _getTasks = () => {
     // fetch from deployed backend
-    fetch( API, {
+    fetch( `${API}`, {
       mode:'cors',
     })
     .then( data => data.json() )
@@ -43,11 +44,25 @@ function Details(props) {
           <span>{task.description}</span>
           <span>{task.status}</span>
           <span>{task.assignee}</span>
+          <span><img src={task.picture} alt={task.picture}/></span>
+          <span><AddImage id={task.id}/></span>
         </div>
     </section>
 
   )
 }
+
+class AddImage extends React.Component{
+  render() {
+    return(
+      <form action={`${API}/${this.props.id}/images`} method="post" encType="multipart/form-data">
+        <input name="file" type="file"></input>
+        <input name="submit" type="submit"></input>
+      </form>
+    )
+  }
+}
+
 
 function App() {
   return (
